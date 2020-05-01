@@ -10,6 +10,11 @@ window.getWindowSize = () => {
     let getContext = (canvas) => {
         console.log("get context:", canvas.id);
         if (!canvasContextCache[canvas.id]) {
+            /*  
+                // I thought this assignemnts should refer exactly to context, but eventually does not work when switching between blazor pages where component is displayed!!!!
+                canvasContextCache[canvas.id] = canvas.getContext("2d"); 
+            */
+           /* that is why I've choosen conventional method to grab canvas objects, it works when switching between blazor pages */
             canvasContextCache[canvas.id] = document.getElementById(canvas.id).getContext("2d");
         }
         return canvasContextCache[canvas.id];
