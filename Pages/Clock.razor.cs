@@ -29,7 +29,7 @@ namespace BlazorClockCanvas
             return async _ =>
             {
                 actualColor = colour;
-                //Console.WriteLine($"ustawiono kolor: {colour}");
+                //Console.WriteLine($"set color: {colour}");
                 await ctx.SetStrokeStyleAsync(colour);
                 await ctx.SetfontAsync(canvasFont);
 
@@ -53,6 +53,7 @@ namespace BlazorClockCanvas
         }
         protected override void OnInitialized()
         {
+            // on init create unique identifier to refer to canvas in JS library
             canvasID = Guid.NewGuid().ToString("d").Substring(1, 6);
         }
         private async Task DrawClockElectronicText(long halfSize, string time, int hr, int min, int sec)
