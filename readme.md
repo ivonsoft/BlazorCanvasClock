@@ -34,10 +34,13 @@ Running this blazor project needs installed latest dotnet core SDK like 3.1 edit
 
 This project does not contain test folder
 
-## Deployment, Debbuging
+## Deployment - container
 
-This scenario does not include docker file to test and debug project in container
+This scenario does not include docker file to deploy, test and debug project in container
 
+## Debugging
+
+Debugging is available in VSCode on your host machine, two files are responsible for configuration: task and launch file in .vscode folder
 
 ## Contributing
 
