@@ -49,18 +49,18 @@ namespace BlazorClockCanvas
                 await ctx.SetStrokeStyleAsync(actualColor);
                 await ctx.SetfontAsync(canvasFont);
             }
-            
+
         }
         protected override void OnInitialized()
         {
             canvasID = Guid.NewGuid().ToString("d").Substring(1, 6);
         }
-        private async Task DrawClockElectronicText(long halfSize, string time,  int hr, int min, int sec )
+        private async Task DrawClockElectronicText(long halfSize, string time, int hr, int min, int sec)
         {
             string Thours = (hr < 10 ? "0" : "") + hr.ToString();
             string Tminutes = (min < 10 ? "0" : "") + min.ToString();
             string Tseconds = (sec < 10 ? "0" : "") + sec.ToString();
-            await this.ctx.DrawDateTime(halfSize,time,$"{Thours}:{Tminutes}:{Tseconds}");
+            await this.ctx.DrawDateTime(halfSize, time, $"{Thours}:{Tminutes}:{Tseconds}");
         }
         private double degToRad(double degree)
         {
@@ -77,16 +77,11 @@ namespace BlazorClockCanvas
                 await Task.Delay(100);
             }
         }
-            
+
         private async Task updateClock()
         {
             var size = windowSize.Height;
             var halfSize = size / 2;
-            var timeFontSize = halfSize * 0.06;
-            var dateFontSize = halfSize * 0.12;
-            var timeFont = $"{timeFontSize} px helvetica";
-            var dateFont = $"{dateFontSize} px helvetica";
-
             DateTime now = DateTime.Now;
             var today = now.Date;
             var time = now.ToLongDateString();
@@ -94,15 +89,16 @@ namespace BlazorClockCanvas
             var minutes = now.Minute;
             var seconds = now.Second;
             var milliseconds = now.Millisecond;
-            float newSeconds = seconds*1.0f + milliseconds*1.0f / 1000;
-            if (seconds>0){
+            float newSeconds = seconds * 1.0f + milliseconds * 1.0f / 1000;
+            if (seconds > 0)
+            {
                 minuteRefreshed = true;
             }
-            float newMinutes = minutes + seconds*1.0f / 60 + milliseconds*1.0f / 60000;
-            float newHours = hours + minutes*1.0f / 60 + seconds*1.0f / 3600 + milliseconds*1.0f / 3600000;
+            float newMinutes = minutes + seconds * 1.0f / 60 + milliseconds * 1.0f / 60000;
+            float newHours = hours + minutes * 1.0f / 60 + seconds * 1.0f / 3600 + milliseconds * 1.0f / 3600000;
             //var timeArray = time(' ');
             //time = timeArray[0] + ' ' + timeArray[1];
-            if ( firstRun || (seconds == 0 && minuteRefreshed) || actualColor != prevColour)
+            if (firstRun || (seconds == 0 && minuteRefreshed) || actualColor != prevColour)
             {
                 minuteRefreshed = false;
                 prevColour = actualColor;
@@ -113,9 +109,8 @@ namespace BlazorClockCanvas
                 firstRun = false;
             }
             await this.ctx.DrawSeconds(halfSize, newSeconds);
-           await this.DrawClockElectronicText(halfSize,time, hours,minutes,seconds);
+            await this.DrawClockElectronicText(halfSize, time, hours, minutes, seconds);
         }
-
 
         void IDisposable.Dispose()
         {
