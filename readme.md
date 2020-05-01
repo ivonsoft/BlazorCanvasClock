@@ -57,8 +57,8 @@ Javascript code was based on:
 https://jsbin.com/cidike/edit?html,css,js,output
 
 Moreover, I found inspiration based on fragments of code:
-https://github.com/SQL-MisterMagoo/BlazorTest/tree/master/BlazorClock
-https://dev.to/azure/creating-dev-s-offline-page-using-blazor-29dl
+1.  https://github.com/SQL-MisterMagoo/BlazorTest/tree/master/BlazorClock
+2.  https://dev.to/azure/creating-dev-s-offline-page-using-blazor-29dl
 
 
 
