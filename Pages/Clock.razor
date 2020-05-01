@@ -1,0 +1,11 @@
+@page "/clock"
+@inherits ClockModel
+
+<ColourPicker OnClick="@SetStrokeColour"
+              Colours="@colours" />
+
+<canvas height="400"
+        width="400"
+        @ref="@canvas"
+        id="@canvasID">
+</canvas>
