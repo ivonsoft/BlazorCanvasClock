@@ -62,6 +62,8 @@ https://jsbin.com/cidike/edit?html,css,js,output
 Moreover, I found inspiration based on fragments of code:
 1.  https://github.com/SQL-MisterMagoo/BlazorTest/tree/master/BlazorClock
 2.  https://dev.to/azure/creating-dev-s-offline-page-using-blazor-29dl
+3. any available source dedicated to blazor and canvas like Blazor Canvas Extension package, or 
+https://github.com/Lupusa87?tab=repositories
 
 
 
